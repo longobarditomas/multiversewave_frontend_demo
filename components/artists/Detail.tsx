@@ -5,7 +5,7 @@ import Image from 'react-bootstrap/Image';
 import Stack from 'react-bootstrap/Stack';
 import Badge from 'react-bootstrap/Badge';
 import Offcanvas from './Menu';
-import Socials from "../../components/Socials";
+import Socials from "./Socials";
 import { Artist } from '../../types/artist.interface';
 import { User } from '../../context/User/UserInterfaces';
 
