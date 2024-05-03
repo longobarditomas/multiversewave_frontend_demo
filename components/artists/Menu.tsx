@@ -18,12 +18,14 @@ const ArtistSettings = ({artist = null}: {artist?: Artist | null}) => {
         Settings
       </Button>
 
-      <Offcanvas show={show} onHide={handleClose} style={{backgroundColor: "black", color: "white", borderColor: "white", borderRadius: "4%"}}>
+      <Offcanvas show={show} onHide={handleClose} className="artist-menu">
         <Offcanvas.Header closeButton closeVariant="white">
           <Offcanvas.Title>Artist Settings</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-            <Image alt={artist.name} src={`${process.env.NEXT_PUBLIC_AWS_S3_BASE_URL}/images/artists/artist_${artist.id}.jpg`} roundedCircle style={{minWidth: '300px', maxWidth: '300px'}} />
+            <div className="artist-menu-image-container">
+              <Image alt={artist.name} src={`${process.env.NEXT_PUBLIC_AWS_S3_BASE_URL}/images/artists/artist_${artist.id}.jpg`} roundedCircle />
+            </div>
             <hr/>
             <Link href={`/artists/${artist.id}/edit`}><h6>Edit Artist</h6></Link>
             <hr/>

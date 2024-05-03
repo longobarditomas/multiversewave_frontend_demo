@@ -29,15 +29,15 @@ const ArtistImage = ({artist = null, setSelectedTypeImage}: ArtistImageProps) =>
             <Form.Group controlId="formFile" className="mb-3">
                 <Form.Label className="artist-form-img">
                 {imagePreviewUrl ? (
-                    <Image alt="preview-img" src={imagePreviewUrl} roundedCircle style={{width: '150px', height: '150px' }} />
+                    <Image alt="preview-img" src={imagePreviewUrl} roundedCircle />
                 ) : artist ? (
                     <div className="image-edit-container">
-                        <Image alt={artist.name} src={`${process.env.NEXT_PUBLIC_AWS_S3_BASE_URL}/images/artists/artist_${artist.id}.jpg`} roundedCircle style={{ width: '150px', height: '150px' }} />
+                        <Image alt={artist.name} src={`${process.env.NEXT_PUBLIC_AWS_S3_BASE_URL}/images/artists/artist_${artist.id}.jpg`} roundedCircle />
                         <FontAwesomeIcon icon={faPenToSquare} className="image-edit-icon" />
                     </div>
 
                 ) : (
-                    <FontAwesomeIcon icon={faCirclePlus} style={{ fontSize: '150px' }} />
+                    <FontAwesomeIcon icon={faCirclePlus} />
                 )}
                 </Form.Label>
                 <Form.Control type="file" onChange={handleFileChange} accept="image/*" hidden />

@@ -52,12 +52,12 @@ const ArtistTags = ({
   
   return (
     <>
-      <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+      <div className='artist-tags'>
         <Button variant="dark" onClick={handleShow}>Tags</Button>
 
         <Form.Group controlId="tags[]">
           {tags.filter(tag => typeof tag.id === 'number' && selectedTags.includes(tag.id)).map((tag) => (
-            <Badge key={"badge-" + tag.id} id={"badge-" + tag.id} bg="success" style={{fontSize: "16px", margin: "10px"}} >
+            <Badge key={"badge-" + tag.id} id={"badge-" + tag.id} bg="success" className="artist-tags-badge" >
               {tag.name}
               <Form.Control type="hidden" placeholder="Enter your test" value={tag.id} />
             </Badge>
@@ -66,19 +66,17 @@ const ArtistTags = ({
       </div>
 
       <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton style={{backgroundColor: "black"}}>
+          <Modal.Header closeButton className='artist-tags-modal-bg'>
               <Modal.Title>Select Artist Tags</Modal.Title>
           </Modal.Header>
-          <Modal.Body style={{backgroundColor: "black"}}>
-          <div style={{fontSize: "20px", textAlign: "center"}}>
+          <Modal.Body className='artist-tags-modal-body'>
           {tags.length > 0 &&
             tags.map((tag) => (
-              <Badge key={"badge-"+tag.id} id={"badge-"+tag.id} bg={selectedTags.some((tagName) => tagName === tag.id) ? "warning" : "secondary"} text={selectedTags.some((tagName) => tagName === tag.id) ? "dark" : ""} style={{fontSize: "16px", margin: "10px"}} onClick={updateSelectedTags}>{tag.name}</Badge>
+              <Badge key={"badge-"+tag.id} id={"badge-"+tag.id} bg={selectedTags.some((tagName) => tagName === tag.id) ? "warning" : "secondary"} text={selectedTags.some((tagName) => tagName === tag.id) ? "dark" : ""} className="artist-tags-badge" onClick={updateSelectedTags}>{tag.name}</Badge>
             ))
           }
-          </div>
           </Modal.Body>
-          <Modal.Footer style={{backgroundColor: "black"}}>
+          <Modal.Footer className='artist-tags-modal-bg'>
               <Button variant="danger" onClick={handleClose}>Select</Button>
           </Modal.Footer>
       </Modal>
